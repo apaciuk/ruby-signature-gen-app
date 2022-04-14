@@ -6,9 +6,9 @@ different connection types ie walmart, aws, other apis etc in SignatureConnector
 
 [http://escherauth.io/index.html]
 
-### Then uses the Signature class to generate a signature for the request, and adds it to the request header, required in config.ru
+###### Then uses the Signature class to generate a signature for the request, and adds it to the request header, required in config.ru
 
-### Relevant files/classes x 7, should work also in Rails 5/6
+#### Relevant files/classes x 7, should work also in Rails 5/6
 
 1. Escher.rb (lib/middleware/escher.rb) classes  Escher::Auth - Escher::Keypool - Escher::Signature - Escher::Timestamp - Escher::Util
 2. Signature.rb  (lib/middleware/signature.rb
@@ -17,15 +17,15 @@ different connection types ie walmart, aws, other apis etc in SignatureConnector
 5. 2 x migrations (app/models/migrations/signature_connector.rb & app/models/migrations/signature.rb)
 6. require_relative 'signature' in config.ru
 
-### Gems 'escher-rack_middleware'  in Gemfile.
+#### Gems 'escher-rack_middleware'  in Gemfile.
 
-# Concept: (in progress) 
+## Concept: (in progress) 
 1. Escher for signature/timestamp 
 2. Signature class for request 
 3. SignatureConnector for the various api connections
-### these may be needed in addition to Walmart which can be added to the SignatureConnector class enum hash
+###### these may be needed in addition to Walmart which can be added to the SignatureConnector class enum hash
 
-### Connection examples (walmart) not yet implemented
+##### Connection examples (walmart) not yet implemented
 connection = SignatureConnector.new
 connection -> {
 SignatureConnector.connection
