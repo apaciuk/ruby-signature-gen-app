@@ -14,4 +14,4 @@ Escher::RackMiddleware.config do |c|
 end
 
 use Escher::RackMiddleware
-run Signature::App.new
+run Signature::App
