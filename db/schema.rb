@@ -15,6 +15,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_14_084712) do
   enable_extension "plpgsql"
 
   create_table "signature_connectors", force: :cascade do |t|
+    t.integer "connection_type", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
