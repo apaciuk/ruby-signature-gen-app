@@ -15,11 +15,17 @@ class SignatureConnector < ApplicationRecord
       'aws'
     end
   end
+  def set_default_connection_type
+    self.connection_type ||= :walmart
+  end
 end
 
-def set_default_connection_type
-  self.connection_type ||= :walmart
-end
+
+
+
+
+
+
 
 
 

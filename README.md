@@ -1,24 +1,37 @@
-# README
+# signature gen app  (middleware For APIs)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Uses middlewares to generate a signature for an api request (starting with default Walmart's api, enum in signature connector class model) 
+Uses Escher - Stateless HTTP Request Signing, the only 3rd party gem used, with a Signature class middleware for the rack request & and enum values for the various
+different connection types ie walmart, aws, other apis etc in SignatureConnector class, add more apis as needed.
 
-Things you may want to cover:
+[http://escherauth.io/index.html]
 
-* Ruby version
+## Then uses the Signature class to generate a signature for the request, and adds it to the request header, required in config.ru
 
-* System dependencies
+### Relevant files/classes x 6.
 
-* Configuration
+1. Escher.rb (lib/middleware/escher.rb)  Escher::Auth - Escher::Keypool - Escher::Signature - Escher::Timestamp - Escher::Util
+2. Signature.rb  (lib/middleware/signature.rb
+3. Signature.rb (app/models/signature.rb) relation only no code as yet. 
+4. SignatureConnector.rb  (app/models/signature_connector.rb)  enums for the different connection types, belongs the signature class.
+5. 2 x migrations (app/models/migrations/signature_connector.rb & app/models/migrations/signature.rb)
 
-* Database creation
+### Concept: (in progress) 
+1. Escher for signature/timestamp 
+2. Signature class for request 
+3. SignatureConnector for the various api connections
+### these may be needed in addition to Walmart which can be added to the SignatureConnector class enum hash
 
-* Database initialization
+# Connection examples (walmart) not yet implemented
+connection = SignatureConnector.new
+connection -> {
+SignatureConnector.connection
+}
+connection = SignatureConnector.new(connection_type: 'aws')
+connection = SignatureConnector.new(connection_type: 'walmart', WM_SEC.AUTH_SIGNATURE: 'wm_sec_auth_signature', WM_SEC.TIMESTAMP 'wm_secure_timestamp')
 
-* How to run the test suite
+Needs fleshing out and finishing.
 
-* Services (job queues, cache servers, search engines, etc.)
+* Ruby version 3.1.0
 
-* Deployment instructions
 
-* ...

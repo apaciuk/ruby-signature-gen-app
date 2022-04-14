@@ -1,5 +1,5 @@
 require 'escher/rack_middleware'
-# require 'logger'
+require 'logger'
 Escher::RackMiddleware.config do |c|
 
   # logger specific file
