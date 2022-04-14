@@ -21,7 +21,7 @@ different connection types ie walmart, aws, other apis etc in SignatureConnector
 
 ## Concept: (in progress) 
 1. Escher for signature/timestamp 
-2. Signature class for request 
+2. Signature class for request (although it could be called anything)
 3. SignatureConnector for the various api connections
 ###### these may be needed in addition to Walmart which can be added to the SignatureConnector class enum hash
 
