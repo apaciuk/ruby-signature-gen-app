@@ -33,7 +33,7 @@ SignatureConnector.connection
 connection = SignatureConnector.new(connection_type: 'aws')
 connection = SignatureConnector.new(connection_type: 'walmart', WM_SEC.AUTH_SIGNATURE: 'wm_sec_auth_signature', WM_SEC.TIMESTAMP 'wm_secure_timestamp')
 
-Needs fleshing out and finishing.
+Needs fleshing out and finishing, should be relatively straighforward for multiple people to work on and keep in order, as should only need a new api/connection type added in enum hash and can then create aa new connection for it.
 
 * Ruby version 3.1.0
 
